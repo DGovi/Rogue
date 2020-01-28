@@ -31,9 +31,12 @@ Create an online application with features of a simplified version of Instagram.
 
 ## Languages used
 __Front End:__
-* TBD
+* JavaScript
+* HTML
+* CSS
 
 __Back End:__
-* TBD
+* PHP
+* SQL
 
 
