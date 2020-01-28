@@ -30,4 +30,10 @@ Create an online application with features of a simplified version of Instagram.
 * A user can leave comments on posted pictures
 
 ## Languages used
-### TBD
+__Front End:__
+* TBD
+
+__Back End:__
+* TBD
+
+
