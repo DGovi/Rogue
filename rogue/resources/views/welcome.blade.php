@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.rogue_welcome_layout')
 
 @section('content')
     <div class="container">
