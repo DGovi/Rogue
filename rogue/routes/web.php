@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/profile', function () {
     return view('profile');
 });
@@ -26,3 +27,7 @@ Route::get('/profile/edit', 'ProfilesController@edit')->name('profile.edit');
 Route::get('/profile/{user}', 'ProfilesController@show')->name('profile.show');
 
 Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
