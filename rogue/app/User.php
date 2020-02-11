@@ -37,6 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
     protected static function boot()
     {
         parent::boot();
@@ -55,4 +56,5 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class);
     }
+
 }

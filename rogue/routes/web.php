@@ -17,7 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/profiles/profile', function () {
+    return view('profiles/profile');
+});
 
 Route::get('/profile/edit', 'ProfilesController@edit')->name('profile.edit');
 
@@ -30,3 +33,6 @@ Route::get('/posts/create', 'PostsController@create')->name('posts.create');
 Route::post('/posts', 'PostsController@store')->name('posts.store');
 
 Route::get('/posts/{post}', 'PostsController@show')->name('posts.show');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
