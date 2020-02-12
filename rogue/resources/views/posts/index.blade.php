@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Photo</div>
+                    <div class="card-header">Photo uploaded by {{ $post->user->username }}</div>
 
                     <div class="card-body">
-                        <img src="/storage/{{ $post->image }}">
+                        <img src="/storage/{{ $post->image }}" height="200px" width="200px">
                     </div>
                 </div>
                 <div class="card">
@@ -16,13 +16,6 @@
 
                     <div class="card-body">
                         {{ $post->caption }}
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">Username of OP</div>
-
-                    <div class="card-body">
-                        {{ $post->user->username }}
                     </div>
                 </div>
             </div>
