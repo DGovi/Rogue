@@ -47,5 +47,4 @@ class PostsController extends Controller
             'post' => $post,
         ]);
     }
-
 }
