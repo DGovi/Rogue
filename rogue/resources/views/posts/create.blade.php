@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Edit your profile</div>
+                    <div class="card-header">Post New Picture</div>
 
                     <div class="card-body">
                         <form method="post" action="/posts" enctype="multipart/form-data">
