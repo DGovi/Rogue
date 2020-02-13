@@ -39,4 +39,22 @@ __Back End:__
 * PHP
 * SQL
 
+## Windows Cloning guide
+
+You can find here the different steps/commands you have to follow in order to correctly clone a repository,
+this tutorial is aimed for Windows user even though most of the steps are also applicable to OS X and Linux users:
+
+__Tutorial:__
+The file mapping conventions are different in MacOS/Linux and Windows, this is why you have to follow this guide __in order__ too for each cloning to display correctly images.
+
+* Access your rogue folder (but directly through windows and not through the VM) and run the terminal __in admin mode__ and enter the command [php artisan storage:link].
+* Clone the git using the command [git clone <the_repo>]
+* Access your 'homestead' folder and run the commands [vagrant up] and then [vagrant ssh]
+* Verify that your database .env file has the correct values:
+     DB_DATABASE=homestead
+	    DB_USERNAME=root
+	    DB_PASSWORD=secret
+* In the rogue folder, run [composer install], [npm install] and [npm run dev]
+* At this point, if 500 Servor Error shows up run the commands: [cp .env.example .env] [php artisan key:generate] [chmod 777 -R  storage]
+
 
