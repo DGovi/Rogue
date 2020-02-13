@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+
+    
+    <!-- Latest compiled and minified CSS -->
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,6 +22,44 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+    
+    <style type="text/css">
+        .image_container{
+            background-color: grey;
+            padding: 20px;
+            height: 100%;
+            width: 100%;
+            min-width: 100vh;
+            min-height: 200px;
+            border-radius: 15px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 20px;
+
+        }
+
+        .wrapper{
+            background-color: white;
+            border-radius: 15px;
+            align-items: start;
+
+        }
+
+        .profiletitle{
+            text-align: center;
+            color: black;
+        }
+        .images{
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+
+        }
+       
+    </style>
+
+
 </head>
 <body>
     <div id="app">
@@ -56,15 +98,6 @@
                                 </li>
                             @endif
                         @else
-
-                        <!--create post button-->
-
-                        <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/posts/create') }}">{{ __('Post Image') }}</a>
-                        </li>
-
-                        <!--dropdown-->
-
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
