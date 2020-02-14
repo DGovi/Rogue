@@ -16,9 +16,12 @@ class ProfilesController extends Controller
         ]);
     }
 
-    public function show($user){
-        $user = User::findOrFail($user);
-
+    public function show($user=null){
+        if($user==null){
+            $user = User::findOrFail(Auth::id());
+        }else {
+            $user = User::findOrFail($user);
+        }
         return view('profiles.index', [
             'user' => $user,
         ]);
