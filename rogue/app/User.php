@@ -61,4 +61,12 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function followers(){
+        return $this->belongsToMany('App\User', 'follows', 'followed', 'user_id');
+    }
+
+    public function follows(){
+        return $this->belongsToMany('App\User', 'follows', 'user_id', 'followed');
+    }
+
 }
