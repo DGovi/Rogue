@@ -38,3 +38,5 @@ Route::get('/posts/{post}', 'PostsController@show')->name('posts.show');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/comments', 'CommentsController@store')->name('comments.store');
+
+Route::post('/follow', 'FollowController@follow')->name('user.follow');

@@ -69,4 +69,12 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User', 'follows', 'user_id', 'followed');
     }
 
+    public function numFollowers(){
+        return $this->followers()->count();
+    }
+
+    public function numFollowing(){
+        return $this->follows()->count();
+    }
+
 }
