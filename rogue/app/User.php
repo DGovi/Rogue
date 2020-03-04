@@ -77,4 +77,8 @@ class User extends Authenticatable
         return $this->follows()->count();
     }
 
+    public function numPosts(){
+        return $this->posts()->count();
+    }
+
 }
