@@ -24,7 +24,14 @@
                 <form method="post" action="/follow" >
                     @csrf
                     <input type="hidden" name="follow" value="{{ $user->id }}">
-                    <button type="submit" class="btn btn-primary">Follow</button>
+                    <button type="submit" class="btn btn-primary pr-5 pl-5">Follow</button>
+                </form>
+            @endif
+            <br>
+            @if (Auth::check() && $user->id == Auth::id())
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                    @csrf
+                    <button type="submit" class="btn btn-primary pr-5 pl-5">Logout</button>
                 </form>
             @endif
         </div>
