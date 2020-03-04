@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Follows;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
@@ -43,8 +44,13 @@ class PostsController extends Controller
 
         $post = Post::findOrFail($id);
 
+        $followed = Follows::where('user_id', '=' , Auth::id())
+            ->where('followed' , '=' , $post->user->id)->exists();
+
         return view('posts.index', [
             'post' => $post,
+            'followed' => $followed,
         ]);
     }
+
 }
