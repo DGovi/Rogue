@@ -1,74 +1,101 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Photo uploaded by {{ $post->user->username }}</div>
-
-                    <div class="card-body">
-                        <img src="/storage/{{ $post->image }}" height="200px" width="200px">
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <img src="/storage/{{ $post->image }}" class="w-100">
+        </div>
+        <div class="col-4">
+            <div>
+                <div class="d-flex align-items-center">
+                    <div class="pr-3">
+                        <a href="/profile/{{ $post->user->id }}">
+                        <img src="/storage/{{ $post->user->profile->photo }}" class="rounded-circle w-100" style="max-width: 40px;">
+                        </a>
+                    </div>
+                    <div class="pr-3">
+                        <a href="/profile/{{ $post->user->id }}">
+                            <span class="text-dark">{{ '@'.$post->user->username }}</span>
+                        </a>
+                    </div>
+                    <div class="ml-auto">
+                        @if (Auth::check() && $post->user->id != Auth::id() && $followed==false)
+                            <form method="post" action="/follow" >
+                                @csrf
+                                <input type="hidden" name="follow" value="{{ $post->user->id }}">
+                                <button type="submit" class="btn btn-primary">Follow</button>
+                            </form>
+                        @endif
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-header">Caption</div>
 
-                    <div class="card-body">
-                        {{ $post->caption }}
+                <br>
+
+                <p>
+
+                <span>
+                    {{ $post->caption }}
+                </span>
+                </p>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Comment
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">Post a Comment</div>
-
-                    <div class="card-body">
+                    <div class="panel-body">
                         @if (Auth::check())
 
                         <form method="post" action="/comments" enctype="multipart/form-data">
-                            @csrf
-                        <div class="form-group row">
-                            <label for="comment" class="col-md-4 col-form-label text-md-right">Create a new comment</label>
-
-                            <div class="col-md-6">
-                                <input id="comment" type="text" class="form-control @error('comment') is-invalid @enderror" name="comment" value="{{ old('comment') }}" required autofocus>
-
-                                @error('comment')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                <input type="hidden" name="post_id" value="{{ $post->id }}" />
-                            </div>
-                        </div>
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Post Comment
-                                </button>
-                            </div>
-                        </div>
+                        @csrf
+                        <textarea class="form-control @error('comment') is-invalid @enderror" placeholder="write a comment..." rows="2" name="comment" value="{{ old('comment') }}" required></textarea>
+                        @error('comment')
+                        <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                        @enderror
+                        <input type="hidden" name="post_id" value="{{ $post->id }}" />
+                        <br>
+                        <button type="submit" class="btn btn-info pull-right">Post</button>
+                        <div class="clearfix"></div>
                         </form>
                         @else
                             Login or Register to post a comment!
                         @endif
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">Previous Comments</div>
-                    <div class="card-body">
-                        @foreach($post->comments as $comment)
+                        <hr>
+                        <ul class="media-list">
+                            @if ($post->comments->count()>0)
 
-                            {{ $comment->user->username }} :
-
-                            {{ $comment->comment }}
-
-                            <br />
-
-                        @endforeach
+                            @foreach($post->comments as $comment)
+                            <li class="media">
+                                <div class="pr-3">
+                                <a href="/profile/{{ $comment->user->profile->id }}" class="pull-left">
+                                    <img src="/storage/{{ $comment->user->profile->photo }}" class="rounded-circle w-100" style="max-width: 40px;">
+                                </a>
+                                </div>
+                                <div class="media-body">
+                                <a href="/profile/{{ $comment->user->profile->id }}">
+                                    <strong class="text-dark">{{ '@'.$comment->user->username }}</strong>
+                                </a>
+                                    <span class="text-muted pull-right">
+                                    <small class="text-muted">{{ $comment->created_at }}</small>
+                                </span>
+                                <p>
+                                    {{ $comment->comment }}
+                                </p>
+                                </div>
+                            </li>
+                            @endforeach
+                            @else
+                            <li>
+                                <strong class="text-success">No comments yet!</strong>
+                            </li>
+                            @endif
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+</div>
 @endsection
