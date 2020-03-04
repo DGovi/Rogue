@@ -43,6 +43,15 @@
                         @endif
                     </ul>
 
+                    <ul class="navbar-nav mr-auto">
+                        <form class="form-inline " method="post" action="{{ url('/search') }}">
+                            @csrf
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search"
+                                   aria-label="Search" name="search">
+                            <button class="btn btn-sm btn-primary">Search</button>
+                        </form>
+                    </ul>
+
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -76,7 +85,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ url('/profile/edit') }}">          
+                                    <a class="dropdown-item" href="{{ url('/profile/edit') }}">
                                         {{ __('Edit profile') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
