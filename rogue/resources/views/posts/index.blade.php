@@ -24,7 +24,7 @@
                             <form method="post" action="/follow" >
                                 @csrf
                                 <input type="hidden" name="follow" value="{{ $post->user->id }}">
-                                <button type="submit" class="btn btn-primary">Follow</button>
+                                <button type="submit" class="btn btn-primary pr-5 pl-5">Follow</button>
                             </form>
                         @endif
                     </div>
@@ -56,7 +56,7 @@
                         @enderror
                         <input type="hidden" name="post_id" value="{{ $post->id }}" />
                         <br>
-                        <button type="submit" class="btn btn-info pull-right">Post</button>
+                        <button type="submit" class="btn btn-primary pr-5 pl-5">Post</button>
                         <div class="clearfix"></div>
                         </form>
                         @else
@@ -87,8 +87,8 @@
                             </li>
                             @endforeach
                             @else
-                            <li>
-                                <strong class="text-success">No comments yet!</strong>
+                            <li class="media">
+                                No comments yet!
                             </li>
                             @endif
                         </ul>
