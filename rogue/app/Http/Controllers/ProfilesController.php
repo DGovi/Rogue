@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Follows;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,8 +23,11 @@ class ProfilesController extends Controller
         }else {
             $user = User::findOrFail($user);
         }
+        $followed = Follows::where('user_id', '=' , Auth::id())
+            ->where('followed' , '=' , $user->id)->exists();
         return view('profiles.index', [
             'user' => $user,
+            'followed' => $followed,
         ]);
     }
 
