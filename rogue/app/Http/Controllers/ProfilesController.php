@@ -52,6 +52,15 @@ class ProfilesController extends Controller
         return redirect('profile/'.$user->id);
 
     }
+
+    public function search(Request $request){
+        if(User::where('username', '=', $request->search)->exists()){
+            $user = User::where('username', '=', $request->search)->first();
+            return redirect('profile/'.$user->id);
+        }else{
+            return redirect('profile');
+        }
+    }
 }
 
 
