@@ -25,7 +25,7 @@ class ProfilesController extends Controller
         }
         $followed = Follows::where('user_id', '=' , Auth::id())
             ->where('followed' , '=' , $user->id)->exists();
-        return view('profile', [
+        return view('profiles.index', [
             'user' => $user,
             'followed' => $followed,
         ]);

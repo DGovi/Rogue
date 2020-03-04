@@ -18,9 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::get('/profiles/profile', function () {
-    return view('profiles/profile');
-});
 Route::get('/profile', 'ProfilesController@show')->name('profile.show');
 
 Route::get('/profile/edit', 'ProfilesController@edit')->name('profile.edit');
