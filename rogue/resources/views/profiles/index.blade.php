@@ -13,9 +13,9 @@
                 </div>
             </div>
             <div class="d-flex">
-                <div class="pr-5"><strong>{{ $user->numPosts() }}</strong> posts</div>
-                <div class="pr-5"><strong>{{ $user->numFollowers() }}</strong> followers</div>
-                <div class="pr-5"><strong>{{ $user->numFollowing() }}</strong> following</div>
+                <div class="pr-5"><strong>{{ $user->numPosts() }} posts</strong></div>
+                <div class="pr-5"><strong>{{ $user->numFollowers() }} followers</strong></div>
+                <div class="pr-5"><strong>{{ $user->numFollowing() }} following</strong></div>
             </div>
             <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
         </div>
@@ -31,8 +31,9 @@
             @if (Auth::check() && $user->id == Auth::id())
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" >
                     @csrf
-                    <button type="submit" class="btn btn-primary pr-5 pl-5">Logout</button>
+                    <button type="submit" class="btn btn-primary btn-block mb-2 ">Logout</button>
                 </form>
+                    <a href="/profile/edit" class="btn btn-primary btn-block mb-2 ">Edit Profile</a>
             @endif
         </div>
     </div>

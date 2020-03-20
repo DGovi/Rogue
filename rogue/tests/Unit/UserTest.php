@@ -18,18 +18,36 @@ class UserTest extends TestCase
 
     public function test_as_a_guest_I_can_register()
     {
-        $user = factory(User::class)->create();
-        $response = $this->post('register', $user->toArray());
+        $response = $this->post('register', [
+            'name' => 'test name',
+            'email' => 'email@test.com',
+            'username' => 'testuser',
+            'password' => 'lamepass',
+            'password_confirmation' => 'lamepass',
+        ]);
         $response->assertStatus(302);
         $response->assertRedirect('/');
+        $this->assertDatabaseHas('users', [
+            'email' => 'email@test.com',
+        ]);
+        $this->assertAuthenticated();
     }
 
     public function test_as_a_user_I_can_login()
     {
-        $user = factory(User::class)->create();
-        $response = $this->post('login', [ $user->username , $user->password ]);
+        $user = factory(User::class)->create([
+            'password' => bcrypt($pass = 'lamepass'),
+        ]);
+        $response = $this->post('/login', [
+            'email' => $user->email ,
+            'password' => $pass,
+            ]);
         $response->assertStatus(302);
         $response->assertRedirect('/');
+        $this->assertDatabaseHas('users', [
+            'email' => $user->email
+        ]);
+        $this->assertAuthenticated();
     }
 
     public function test_as_a_user_I_can_create_a_post()
