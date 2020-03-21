@@ -59,7 +59,11 @@
                                 <a class="nav-link" href="{{ url('/posts/create') }}">{{ __('Post Image') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/profile') }}">{{ '@'.Auth::user()->username }}</a>
+                            <a class="nav-link" href="{{ url('/profile') }}">{{ '@'.Auth::user()->username }}
+                            @if(Auth::user()->unreadNotifications->count() > 0)
+                                <span class="badge badge-danger">{{ Auth::user()->unreadNotifications->count()  }}</span>
+                            @endif
+                            </a>
                         </li>
 
                         @endguest
