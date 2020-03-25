@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\NewComment;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
@@ -24,6 +25,10 @@ class CommentsController extends Controller
 
         $comment->comment = $request->comment;
         $comment->save();
+
+        $toNotify = $post->user;
+
+        $toNotify->notify(new NewComment($comment));
 
         return redirect('posts/'.$post->id);
 

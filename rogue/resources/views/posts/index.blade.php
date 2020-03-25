@@ -3,10 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-8">
+        <div class="col-lg-8">
             <img src="/storage/{{ $post->image }}" class="w-100">
         </div>
-        <div class="col-4">
+        <div class="col-lg-4">
             <div>
                 <div class="d-flex align-items-center">
                     <div class="pr-3">
@@ -66,7 +66,7 @@
                         <ul class="media-list">
                             @if ($post->comments->count()>0)
 
-                            @foreach($post->comments as $comment)
+                            @foreach($post->comments->sortByDesc('created_at') as $comment)
                             <li class="media">
                                 <div class="pr-3">
                                 <a href="/profile/{{ $comment->user->profile->id }}" class="pull-left">

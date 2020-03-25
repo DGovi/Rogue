@@ -51,14 +51,26 @@
         @endforeach
     </div>
 
-
+    Notifications Comments :
+    <br>
     @if (Auth::check() && $user->id == Auth::id())
-        @foreach(auth()->user()->unreadNotifications as $notification)
-            {{ $notification->data['new_follower'] }}
+        @foreach(auth()->user()->unreadNotifications->where('type', 'App\Notifications\NewComment') as $notification)
+            A new comment on post : {{ $notification->data['new_comment'] }} <br>
+            by user : {{ $notification->data['user_commented'] }}
             {{ $notification->markAsRead() }}
+            <br>
         @endforeach
     @endif
 
+    Notifications Follow :
+    <br>
+    @if (Auth::check() && $user->id == Auth::id())
+        @foreach(auth()->user()->unreadNotifications->where('type', 'App\Notifications\NewFollower') as $notification)
+            A new follower: {{ $notification->data['new_follower'] }}
+            {{ $notification->markAsRead() }}
+            <br>
+        @endforeach
+    @endif
 
 </div>
 @endsection
