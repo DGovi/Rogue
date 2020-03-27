@@ -20,15 +20,6 @@
                                 <span class="text-dark">{{ '@'.$post->user->username }}</span>
                             </a>
                         </div>
-                        <div class="ml-auto">
-                            @if (Auth::check() && $post->user->id != Auth::id() && $followed==false)
-                                <form method="post" action="/follow" >
-                                    @csrf
-                                    <input type="hidden" name="follow" value="{{ $post->user->id }}">
-                                    <button type="submit" class="btn btn-primary pr-5 pl-5">Follow</button>
-                                </form>
-                            @endif
-                        </div>
                     </div>
 
                     <hr size="20">

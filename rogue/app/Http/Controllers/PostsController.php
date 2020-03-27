@@ -11,9 +11,8 @@ use Illuminate\Support\Facades\Auth;
 class PostsController extends Controller
 {
     public function index(){
-        $users = auth()->user()->follows()->pluck('user_id');
+        $users = auth()->user()->follows()->pluck('followed');
         $posts = Post::whereIn('user_id', $users)->latest()->get();
-
         return view('posts.actualPosts', compact('posts'));
     }
 
