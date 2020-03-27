@@ -62,11 +62,11 @@ class User extends Authenticatable
     }
 
     public function followers(){
-        return $this->belongsToMany('App\User', 'follows', 'followed', 'user_id');
+        return $this->belongsToMany('App\User', 'follows', 'followed', 'user_id')->orderBy('created_at', 'asc');
     }
 
     public function follows(){
-        return $this->belongsToMany('App\User', 'follows', 'user_id', 'followed');
+        return $this->belongsToMany('App\User', 'follows', 'user_id', 'followed')->orderBy('created_at', 'asc');
     }
 
     public function numFollowers(){
