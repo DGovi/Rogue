@@ -36,17 +36,26 @@ class ProfilesController extends Controller
         $profile = $user->profile;
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'title' => 'required',
+            'username' => 'nullable|unique:users',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'nullable',
         ]);
 
 
-        if(null != $request->image) {
+        if($request->image != null) {
             $path = $request->file('image')->store('images/profile','public');
             $profile->photo = $path;
         }
 
-        $profile->title = $request->title;
+        if($request->title != null) {
+            $profile->title = $request->title;
+        }
+
+        if($request->username != null) {
+            $user->username = $request->username;
+            $user->save();
+        }
+
         $profile->save();
 
         return redirect('profile/'.$user->id);
