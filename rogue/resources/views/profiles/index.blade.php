@@ -24,15 +24,20 @@
                 <form method="post" action="/follow" >
                     @csrf
                     <input type="hidden" name="follow" value="{{ $user->id }}">
-                    <button type="submit" class="btn btn-primary pr-5 pl-5">Follow</button>
+                    <button type="submit" class="btn btn-primary btn-block mb-2 ">Follow</button>
                 </form>
-            @endif
-            <br>
-            @if (Auth::check() && $user->id == Auth::id())
+            @elseif (Auth::check() && $user->id != Auth::id() && $followed)
+                <form method="post" action="/unfollow" >
+                    @csrf
+                    <input type="hidden" name="unfollow" value="{{ $user->id }}">
+                    <button type="submit" class="btn btn-primary btn-block mb-2 ">Unfollow</button>
+                </form>
+            @elseif (Auth::check() && $user->id == Auth::id())
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" >
                     @csrf
-                    <button type="submit" class="btn btn-primary pr-5 pl-5">Logout</button>
+                    <button type="submit" class="btn btn-primary btn-block mb-2 ">Logout</button>
                 </form>
+                <a href="/profile/edit" class="btn btn-primary btn-block mb-2 ">Edit Profile</a>
             @endif
         </div>
     </div>
