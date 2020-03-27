@@ -36,9 +36,9 @@ class ProfilesController extends Controller
         $profile = $user->profile;
 
         $request->validate([
-            'username' => 'nullable|unique:users',
+            'username' => 'nullable|alpha_num|unique:users',
+            'title' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'title' => 'nullable',
         ]);
 
 
