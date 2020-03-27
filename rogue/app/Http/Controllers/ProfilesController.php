@@ -19,7 +19,7 @@ class ProfilesController extends Controller
     }
 
     public function show($user=null){
-        if($user==null){
+        if($user==null || $user == auth()->id()){
             $user = User::findOrFail(Auth::id());
             $notifications = collect();
             foreach ($user->unreadNotifications->where('type', 'App\Notifications\NewComment') as $notification) {
@@ -39,7 +39,7 @@ class ProfilesController extends Controller
                 $notifications->push($insert);
                 $notification->markAsRead();
             }
-            //dd($notifications);
+
             return view('profiles.index', [
                 'user' => $user,
                 'notifications' => $notifications,
