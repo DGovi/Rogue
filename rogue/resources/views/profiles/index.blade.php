@@ -2,6 +2,24 @@
 
 @section('content')
 <div class="container">
+
+    @if (Auth::check() && $user->id == Auth::id() && $notifications)
+        @foreach($notifications as $notification)
+        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+            @if($notification['type'] == 'new_comment')
+                <a href="{{ $notification['url'] }}" class="alert-link">{{ '@' . $notification['username'] }} just commented on your post!</a>
+
+            @elseif($notification['type'] == 'new_follower')
+                <a href="{{ $notification['url'] }}" class="alert-link">{{ '@' . $notification['username'] }} is now following you!</a>
+
+            @endif
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endforeach
+    @endif
+
     <div class="row">
         <div class="col-3 pt-5">
             <img src="/storage/{{ $user->profile->photo }}" class="rounded-circle w-100">
@@ -13,9 +31,9 @@
                 </div>
             </div>
             <div class="d-flex">
-                <div class="pr-5"><strong>{{ $user->numPosts() }}</strong> posts</div>
-                <div class="pr-5"><strong>{{ $user->numFollowers() }}</strong> followers</div>
-                <div class="pr-5"><strong>{{ $user->numFollowing() }}</strong> following</div>
+                <div class="pr-5"><strong>{{ $user->numPosts() }} posts</strong></div>
+                <div class="pr-5"><strong>{{ $user->numFollowers() }} followers</strong></div>
+                <div class="pr-5"><strong>{{ $user->numFollowing() }} following</strong></div>
             </div>
             <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
         </div>
@@ -50,5 +68,6 @@
             </div>
         @endforeach
     </div>
+
 </div>
 @endsection
