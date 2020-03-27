@@ -43,7 +43,7 @@ class UserTest extends TestCase
             'password' => $pass,
             ]);
         $response->assertStatus(302);
-        $response->assertRedirect('/');
+        $response->assertRedirect('/homepage');
         $this->assertDatabaseHas('users', [
             'email' => $user->email
         ]);
