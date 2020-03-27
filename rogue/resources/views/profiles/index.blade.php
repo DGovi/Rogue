@@ -55,7 +55,7 @@
                     @csrf
                     <button type="submit" class="btn btn-primary btn-block mb-2 ">Logout</button>
                 </form>
-                    <a href="/profile/edit" class="btn btn-primary btn-block mb-2 ">Edit Profile</a>
+                <a href="/profile/edit" class="btn btn-primary btn-block mb-2 ">Edit Profile</a>
             @endif
         </div>
     </div>
