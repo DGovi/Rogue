@@ -26,7 +26,9 @@ Route::get('/profile/{user}', 'ProfilesController@show')->name('profile.show');
 
 Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');
 
-Route::get('/homepage', 'PostsController@index');
+Route::get('/homepage', 'FeedController@private');
+
+Route::get('/public', 'FeedController@public');
 
 Route::get('/posts/create', 'PostsController@create')->name('posts.create');
 
