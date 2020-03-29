@@ -21,7 +21,7 @@
                                 @enderror
                             </div>
                             <div class="login_input_style">
-                                <input placeholder="Pasword" id="password" type="password" class="login_input_field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input placeholder="Password" id="password" type="password" class="login_input_field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
