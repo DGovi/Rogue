@@ -193,5 +193,26 @@
     color: black;
 }
 
+#welcome{
+    position: relative; top: 50px;
+}
 
+#username-edit{
+    position:relative; left:-55px;
+}
 
+#title-edit{
+    position: relative; left:-55px;
+}
+
+#profile_photo-edit{
+    position:relative; left:-54px;
+}
+
+#image-edit{
+    border:0px;position: relative;align-self: center; right:-14px;
+}
+
+#update_profile-edit{
+    position: relative;left: 14px;
+}

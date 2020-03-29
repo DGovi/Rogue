@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="position: relative; top: 50px;">
+<div class="container" id="welcome" >
     <div class="row justify-content-center">
         <div class="jumbotron">
             <div align="center" class="display-4">Welcome to Rogue!</div>

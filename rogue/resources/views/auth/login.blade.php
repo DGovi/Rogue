@@ -5,12 +5,12 @@
         <div class="login_body">
             <div class="login_container">
                 <div  class="login_left_container">
-                    <img style="position: relative; top:-55px" src="images/Allblack1.png" alt="Logo"/>
+                    <img  src="images/Allblack1.png" alt="Logo"/>
                 </div>
                 
                 <form method="POST" action="{{ route('login') }}">
                         @csrf
-                    <div style="position:relative; right:40px" class="login_right_container">
+                    <div  class="login_right_container">
                             <div class="login_input_style">
                                 <input placeholder="Email" id="email" type="email" class="login_input_field @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
