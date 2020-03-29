@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div style="position: relative;top: 80px;" class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -11,11 +11,12 @@
                         <form method="post" action="/posts" enctype="multipart/form-data">
                             @csrf
 
-                            <div class="form-group row">
-                                <label for="image" class="col-md-4 col-form-label text-md-right">Post a Picture</label>
+                            <div style="position: relative; right: 50px;" class="form-group row">
+                                <label style="position: relative; right: 9px;" for="image" class="col-md-4 col-form-label text-md-right">Post a Picture</label>
 
                                 <div class="col-md-6">
-                                    <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image"  >
+                                    <input id="image" type="file" 
+                                    style="border:0px;position: relative;right: -70px;"class="form-control @error('image') is-invalid @enderror" name="image"  >
 
                                     @error('image')
                                     <span class="invalid-feedback" role="alert">
@@ -26,7 +27,7 @@
                             </div>
 
 
-                            <div class="form-group row">
+                            <div style="position: relative; right: 50px;" class="form-group row">
                                 <label for="caption" class="col-md-4 col-form-label text-md-right">Picture Caption</label>
 
                                 <div class="col-md-6">
@@ -40,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                                <div style="position: relative;left: 50px;" class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
                                         Post
                                     </button>
