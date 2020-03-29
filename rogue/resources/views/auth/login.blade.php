@@ -10,7 +10,7 @@
                 
                 <form method="POST" action="{{ route('login') }}">
                         @csrf
-                    <div class="login_right_container">
+                    <div style="position:relative; right:40px" class="login_right_container">
                             <div class="login_input_style">
                                 <input placeholder="Email" id="email" type="email" class="login_input_field @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
