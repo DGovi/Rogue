@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="jumbotron">
-            <div class="display-4">Welcome to Rogue!</div>
+            <div align="center" class="display-4">Welcome to Rogue!</div>
             <p class="lead">
 
                 </br>This is a project for SOEN341 made by Killian, James, Daniel, Ashraf and Kaysse
