@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="position: relative; top: 50px;">
     <div class="row justify-content-center">
         <div class="jumbotron">
             <div align="center" class="display-4">Welcome to Rogue!</div>
@@ -21,4 +21,5 @@
         </div>
     </div>
 </div>
+ <div style="text-align: center;"><img style="position: relative; max-height:300px; border-radius: 50%; top: 70px;" src="images/Allblack1.png" alt="Logo"/></div>
 @endsection
