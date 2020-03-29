@@ -4,8 +4,8 @@
 <div class="login_html">
         <div class="login_body">
             <div class="login_container">
-                <div class="login_left_container">
-                    <img src="images/Allblack1.png" alt="Logo"/>
+                <div  class="login_left_container">
+                    <img style="position: relative; top:-55px" src="images/Allblack1.png" alt="Logo"/>
                 </div>
                 
                 <form method="POST" action="{{ route('login') }}">
