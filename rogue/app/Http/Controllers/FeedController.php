@@ -21,7 +21,7 @@ class FeedController extends Controller
             $time_created = new Carbon($item->created_at);
             $time_score = Carbon::now()->diffInHours($time_created);
             //$like_score
-            $time_score > 0 ? $item['score'] = ($comment_score / $time_score ) : $item['score'] = 1 ;
+            $time_score > 0 ? $item['score'] = ( ( $comment_score + 0.75) / $time_score ) : $item['score'] = 1 ;
         });
 
         $posts = $posts->sortByDesc('score');
