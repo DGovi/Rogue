@@ -60,13 +60,19 @@
         </div>
     </div>
     <div class="row pt-5">
-        @foreach($user->posts as $post)
-            <div class="col-4 pb-4">
-                <a href="/posts/{{ $post->id }}">
-                    <img src="/storage/{{ $post->image }}" class="w-100">
-                </a>
-            </div>
-        @endforeach
+        @if($user->numPosts() != 0)
+            @foreach($user->posts as $post)
+                <div class="col-4 pb-4">
+                    <a href="/posts/{{ $post->id }}">
+                        <img src="/storage/{{ $post->image }}" class="w-100">
+                    </a>
+                </div>
+            @endforeach
+        @else
+            <br>
+            <h1>No posts yet</h1>
+        @endif
+
     </div>
 
 </div>
