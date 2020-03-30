@@ -246,3 +246,6 @@
 #welcome_logo{
     position: relative; max-height:300px;  top: 70px;
 }
+#logo_navbar{
+    height: 45px;  border-radius:50px;
+}
