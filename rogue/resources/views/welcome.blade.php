@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<body id="body_welcome_page">
 <div class="container" id="welcome" >
     <div class="row justify-content-center">
         <div class="jumbotron">
@@ -21,5 +22,8 @@
         </div>
     </div>
 </div>
- <div style="text-align: center;"><img style="position: relative; max-height:300px; border-radius: 50%; top: 70px;" src="images/Allblack1.png" alt="Logo"/></div>
+ <div id="text_container_welcome">
+    <img id="welcome_logo" src="images/Allblack1.png" alt="Logo"/>
+ </div>
+</body>
 @endsection

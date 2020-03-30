@@ -216,3 +216,33 @@
 #update_profile-edit{
     position: relative;left: 14px;
 }
+#edit_box{
+    position: relative;top: 30px;
+}
+#post_box{
+    position: relative;top: 30px;
+}
+#post_picture_text{
+    position: relative; right: 50px;
+}
+#choose_file_button{
+    position: relative; right: 9px;
+}
+#image_upload_post{
+    border:0px;position: relative;right: -70px;
+}
+#pic_caption_div{
+    position: relative; right: 50px;
+}
+#post_button_div{
+    position: relative;left: 50px;
+}
+#body_welcome_page{
+    background-color: black;
+}
+#text_container_welcome{
+    text-align: center;
+}
+#welcome_logo{
+    position: relative; max-height:300px;  top: 70px;
+}
