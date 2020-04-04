@@ -193,9 +193,25 @@
     color: black;
 }
 
+/* Welcome view CSS*/
+
 #welcome{
     position: relative; top: 50px;
 }
+
+#welcome_logo{
+    position: relative; max-height:300px;  top: 70px;
+}
+
+#text_container_welcome{
+    text-align: center;
+}
+
+#body_welcome_page{
+    background-color: black;
+}
+
+/* Edit profile view view CSS*/
 
 #username-edit{
     position:relative; left:-55px;
@@ -219,6 +235,9 @@
 #edit_box{
     position: relative;top: 30px;
 }
+
+/* Post image view CSS*/
+
 #post_box{
     position: relative;top: 30px;
 }
@@ -237,15 +256,9 @@
 #post_button_div{
     position: relative;left: 50px;
 }
-#body_welcome_page{
-    background-color: black;
-}
-#text_container_welcome{
-    text-align: center;
-}
-#welcome_logo{
-    position: relative; max-height:300px;  top: 70px;
-}
+
+/* Navbar CSS*/
+
 #logo_navbar{
     height: 45px;  border-radius:50px;
 }
