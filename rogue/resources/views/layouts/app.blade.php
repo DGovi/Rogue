@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Rogue') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -36,7 +36,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @auth
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('explore') }}">Explore</a>
+                        </li>
+                    </ul>
+                    @endauth
 
+                    <!-- Center of Navbar -->
                     <ul class="navbar-nav ml-auto mr-auto">
                                 <form method="post" action="{{ url('/search') }}">
                                     @csrf
@@ -77,7 +85,7 @@
             </div>
         </nav>
 
-        <main class="">
+        <main class="py-4">
             @yield('content')
         </main>
     </div>
