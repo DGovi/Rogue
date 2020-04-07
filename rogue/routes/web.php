@@ -43,3 +43,5 @@ Route::post('/follow', 'FollowController@follow')->name('user.follow');
 Route::post('/unfollow', 'FollowController@unfollow')->name('user.unfollow');
 
 Route::post('/search', 'ProfilesController@search')->name('profile.search');
+
+Route::post('/vote', 'VotesController@index');

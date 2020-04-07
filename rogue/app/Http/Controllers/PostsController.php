@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Follows;
 use App\Post;
 use App\User;
+use App\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,9 +54,15 @@ class PostsController extends Controller
         $followed = Follows::where('user_id', '=' , Auth::id())
             ->where('followed' , '=' , $post->user->id)->exists();
 
+        $voted = Vote::where('user_id', '=', Auth::id())->where('post_id', '=', $post->id)->exists();
+
+        $score = $post->score();
+
         return view('posts.index', [
             'post' => $post,
             'followed' => $followed,
+            'voted' => $voted,
+            'score' => $score,
         ]);
     }
 
