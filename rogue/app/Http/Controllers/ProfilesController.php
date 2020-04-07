@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Follows;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Image;
 
 class ProfilesController extends Controller
 {
@@ -68,6 +69,8 @@ class ProfilesController extends Controller
 
         if($request->image != null) {
             $path = $request->file('image')->store('images/profile','public');
+            $img = Image::make(Storage::disk('public')->get($path))->fit(200)->encode();
+            Storage::disk('public')->put($path, $img);
             $profile->photo = $path;
         }
 
