@@ -8,6 +8,8 @@ use App\User;
 use App\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Image;
 
 class PostsController extends Controller
 {
@@ -31,6 +33,8 @@ class PostsController extends Controller
 
         if(null != $request->image) {
             $path = $request->file('image')->store('images/posts','public');
+            $img = Image::make(Storage::disk('public')->get($path))->fit(700)->encode();
+            Storage::disk('public')->put($path, $img);
             $post->image = $path;
         }
 
