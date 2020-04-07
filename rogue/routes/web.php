@@ -40,6 +40,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/unfollow', 'FollowController@unfollow')->name('user.unfollow');
 
+    Route::post('/vote', 'VotesController@index')->name('user.vote');
+
 });
 
 Route::get('/', 'FeedController@index')->name('home');
@@ -50,4 +52,3 @@ Route::get('/posts/{post}', 'PostsController@show')->name('posts.show');
 
 Route::post('/search', 'ProfilesController@search')->name('profile.search');
 
-Route::post('/vote', 'VotesController@index');
