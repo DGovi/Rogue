@@ -180,14 +180,7 @@ class UserTest extends TestCase
 
     // *** TESTING SEARCH BAR *** //
 
-    /* to fix
-    Failed asserting that two strings are equal.
-    --- Expected
-    +++ Actual
-    @@ @@
-    -'http://localhost/profile/2'
-    +'http://localhost/profile'
-    */
+    // @@@ OK
     public function test_as_a_user_I_can_search_other_user()
     {
         $user = factory(User::class)->create();
@@ -195,17 +188,26 @@ class UserTest extends TestCase
 
         $response = $this->actingAs($user)
             ->post('search', [
-                'username' => $otherUser->username,
+                'search' => $otherUser->username,
                 ]);
 
-        
+        $response->assertStatus(302);
         $response->assertRedirect('profile/'.$otherUser->id);
     }
 
-    /*public function test_as_a_guest_I_can_search_other_user()
+    // @@@ OK
+    public function test_as_a_guest_I_can_search_other_user()
     {
+        $otherUser = factory(User::class)->create();
 
-    }*/
+        $response = $this
+            ->post('search', [
+                'search' => $otherUser->username,
+                ]);
+     
+        $response->assertStatus(302);
+        $response->assertRedirect('profile/'.$otherUser->id);
+    }
 
     // @@@ OK
     public function test_as_a_user_searching_for_non_existing_user()
@@ -214,12 +216,23 @@ class UserTest extends TestCase
 
         $response = $this->actingAs($user)
             ->post('search', [
-                'user_id' => null,
+                'search' => null,
                 ]);
 
         $response->assertStatus(302);
         $response->assertRedirect('profile/');
     }
 
+    // @@@ OK
+    public function test_as_a_guest_searching_for_non_existing_user()
+    {
+        $response = $this
+            ->post('search', [
+                'search' => null,
+                ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect('profile/');
+    }
 
 }
