@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<body id="body_welcome_page">
+<div class="container" id="welcome" >
     <div class="row justify-content-center">
         <div class="jumbotron">
-            <div class="display-4">Welcome to Rogue!</div>
+            <div align="center" class="display-4">Welcome to Rogue!</div>
             <p class="lead">
 
                 </br>This is a project for SOEN341 made by Killian, James, Daniel, Ashraf and Kaysse
@@ -56,4 +57,8 @@
     @endforeach
 
 </div>
+ <div id="text_container_welcome">
+    <img id="welcome_logo" src="images/Allblack1.png" alt="Logo"/>
+ </div>
+</body>
 @endsection

@@ -4,13 +4,13 @@
 <div class="login_html">
         <div class="login_body">
             <div class="login_container">
-                <div class="login_left_container">
-                    <img src="images/Allblack1.png" alt="Logo"/>
+                <div  class="login_left_container">
+                    <img  src="images/Allblack1.png" alt="Logo"/>
                 </div>
                 
                 <form method="POST" action="{{ route('login') }}">
                         @csrf
-                    <div class="login_right_container">
+                    <div  class="login_right_container">
                             <div class="login_input_style">
                                 <input placeholder="Email" id="email" type="email" class="login_input_field @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -21,7 +21,7 @@
                                 @enderror
                             </div>
                             <div class="login_input_style">
-                                <input placeholder="Pasword" id="password" type="password" class="login_input_field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input placeholder="Password" id="password" type="password" class="login_input_field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
