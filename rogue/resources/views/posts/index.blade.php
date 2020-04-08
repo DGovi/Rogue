@@ -4,7 +4,24 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
-            <img src="/storage/{{ $post->image }}" class="w-100">
+            <div class="row">
+                <img src="/storage/{{ $post->image }}" class="w-100">
+            </div>
+            <div class="row py-4">
+                <div class="col-6">
+                    @if (Auth::check() && $post->user->id != Auth::id() && !$voted)
+                        <form method="post" action="/vote" >
+                            @csrf
+                            <input type="hidden" name="post_id" value="{{ $post->id }}">
+                            <button type="submit" class="btn btn-primary btn-sm" name="vote" value="upvote">upvote</button>
+                            <button type="submit" class="btn btn-primary btn-sm" name="vote" value="downvote">downvote</button>
+                        </form>
+                    @endif
+                </div>
+                <div class="col-6 text-right">
+                        <strong>Votes: {{ $score }}</strong>
+                </div>
+            </div>
         </div>
         <div class="col-lg-4">
             <div>
