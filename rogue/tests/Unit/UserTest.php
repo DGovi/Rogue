@@ -61,7 +61,7 @@ class UserTest extends TestCase
                 'follow' => $user_to_follow->id,
             ]);
         
-        $response->assertStatus(404);
+        $response->assertStatus(302);
     }
 
     // *** TESTING COMMENTING *** //
