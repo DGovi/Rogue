@@ -18,4 +18,12 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function votes(){
+        return $this->hasMany(Vote::class);
+    }
+
+    public function score(){
+        return $this->votes()->where('post_id', '=', $this->id)->sum('vote');
+    }
+
 }

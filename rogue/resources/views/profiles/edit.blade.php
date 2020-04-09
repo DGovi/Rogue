@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div id="edit_box" class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -12,13 +12,13 @@
                         @csrf
                         @method('PATCH')
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                        <div id="username-edit" class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Username</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}">
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}">
 
-                                @error('name')
+                                @error('username')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -26,21 +26,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="bio" class="col-md-4 col-form-label text-md-right">Bio</label>
-
-                            <div class="col-md-6">
-                                <textarea id="bio" type="textarea" class="form-control @error('bio') is-invalid @enderror" name="bio" value="{{ old('bio') }}"></textarea>
-
-                                @error('bio')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
+                        <div id="title-edit" class="form-group row">
                             <label for="title" class="col-md-4 col-form-label text-md-right">Title</label>
 
                             <div class="col-md-6">
@@ -55,10 +41,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="image" class="col-md-4 col-form-label text-md-right">Profile Photo</label>
+                            <label id="profile_photo-edit" for="image" class="col-md-4 col-form-label text-md-right">Profile Photo</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image">
+                                <input id="image-edit" type="file"class="form-control @error('image') is-invalid @enderror" name="image">
 
                                 @error('image')
                                 <span class="invalid-feedback" role="alert">
@@ -68,7 +54,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div id="update_profile-edit" class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     Update Profile
