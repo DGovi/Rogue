@@ -1,0 +1,12 @@
+demo: 
+
+1. 	guestFeed.jpg shows that a guest can view posts on the "homepage".
+2. 	guestViewPost shows that a guest can't comment, or vote.
+3. 	beforeVoting shows that a user can comment, and for this demo, can also vote.
+4. 	afterVoting shows the result of the post after the image has been upvoted.
+5. 	profilePage shows a user profile and the number of people he his following and is followed by
+6. 	numFollow shows that when a user clicks on the number of following or followed by text, it shows the corresponding users. 
+	Not shown in the image is that if there are numtiple users following or is followed by, the users will show up in alphanumeric order
+7.	UserFeed shows a list of post by those he is following: the users feed.
+8.	explore shows what is presented when the explore button has been clicked.
+	The explore page brings the user to all posts posted by all users.
